@@ -1,0 +1,149 @@
+<%- include('./header') %>
+
+<!-- wrapper  -->
+
+<div class="dashboard-wrapper">
+	<div class="dashboard-ecommerce">
+		<div class="container-fluid dashboard-content ">
+
+			<!-- pageheader  -->
+
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="page-header">
+						<h2 class="pageheader-title">Users</h2>
+
+						<div class="page-breadcrumb">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Admin</a>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">Users</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- end pageheader  -->
+
+
+			
+
+				<!-- Top Earning User  -->
+
+				<div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+						<div class="card text">
+							<nav class="navbar navbar-light bg-light justify-content-between">
+								<h4 class="m-0">All Users</h4>
+								<form class="form-inline">
+								  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+								  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+								</form>
+							  </nav>
+							<div class="card-body p-0">
+								<div class="table-responsive">
+									<table class="table css-serial">
+										<thead class="bg-light">
+											<tr class="border-0">
+												<th class="border-0">#</th>
+												<th class="border-0">User ID</th>
+												<th class="border-0">Name</th>
+												<th class="border-0">Mobile</th>
+												<th class="border-0">email</th>
+												<th class="border-0">no of application</th>
+											</tr>
+										</thead>
+										<tbody>
+											<% for(let i=0;i< users.length;i++){%>
+											<tr>
+												<td><%=i+1%>.</td>
+												<td class="border-0"><a href="/admin/user" style="color: blue"><%=users[i].id%></a></td>
+												<td class="border-0"><%=users[i].firstName%></td>
+												<td class="border-0"><%=users[i].contactNumber%></td>
+												<td class="border-0"><%=users[i].email%></td>
+												<td class="border-0">0</td>
+											</tr>
+											<%}%>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- <div class="text-center">
+								<nav aria-label="Page navigation">
+									<ul class="pagination">
+										<li class="page-item">
+											<a class="page-link" href="#" aria-label="Previous">
+												<span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span>      </a>
+										</li>
+										<li class="page-item active"><a class="page-link" href="#">1</a></li>
+										<li class="page-item"><a class="page-link" href="#">2</a></li>
+										<li class="page-item"><a class="page-link" href="#">3</a></li>
+										<li class="page-item">
+											<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span>
+											   <span class="sr-only">Next</span></a>
+										</li>
+									</ul>
+								</nav>
+							</div> -->
+						</div>
+					</div>
+				</div>
+
+				<!-- Top Earning User  -->
+			</div>
+		</div>
+	</div>
+	<%- include('./footer') %>
+	<Script>
+		if ($('#c3chart_zoom').length) {
+			var chart = c3.generate({
+				bindto: "#c3chart_zoom",
+				data: {
+					x: 'x',
+					columns: [
+						['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+						['ending', 78, 8, 5, 8, 2, 8, 2, 8, 2, 8, 2, 8, 8],
+						['sample', 30, 200, 100, 400, 150, 250, 150, 200, 170, 240, 350, 150, 100, 400, 150, 250,
+							150, 200, 170, 240, 100, 150, 250, 150, 200, 170, 240, 30, 200, 100, 400, 150, 250,
+							150, 200, 170, 240, 350, 150, 100, 400, 350, 220, 250, 300, 270, 140, 150, 90, 150,
+							50, 120, 70, 40
+						]
+					],
+
+					colors: {
+						sample: '#5969ff',
+						ending: ''
+					}
+				},
+				zoom: {
+					enabled: true
+				},
+				axis: {
+					y: {
+						show: true,
+
+
+					},
+					x: {
+						show: true,
+						type: 'timeseries',
+						tick: {
+							format: '%m-%d'
+						}
+					}
+				}
+
+			});
+		}
+		setTimeout(function () {
+			chart.load({
+				columns: [
+					['data3', 400, 500, 450, 700, 0, 500]
+				]
+			});
+		}, 1000);
+
+	</Script>

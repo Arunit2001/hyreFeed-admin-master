@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/libs/css/style.css">
+    <link rel="stylesheet" href="/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/vendor/fonts/themify-icons/themify-icons.css">
+    <!-- <link rel="stylesheet" href="/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css"> -->
+    <!-- <link rel="stylesheet" href="/vendor/fonts/flag-icon-css/flag-icon.min.css"> -->
+    <!-- <link rel="stylesheet" href="/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="/vendor/select2/css/select2.css">
+    <link rel="stylesheet" href="/vendor/summernote/css/summernote-bs4.css"> -->
+    <title>Hyrefeed</title>
+</head>
+
+<body>
+
+    <!-- main wrapper -->
+
+    <div class="dashboard-main-wrapper">
+
+        <!-- navbar -->
+
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="/admin/">Hyrefeed</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <!-- <span class="navbar-toggler-icon"></span> -->
+                    <i class="ti-user"></i>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p><i class="ti-user"></i>
+                                    <span
+                                        class="mb-0 nav-user-name text-primary">Admin</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </p>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                aria-labelledby="navbarDropdownMenuLink2">
+                                <!-- <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div> -->
+                                <!-- <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a> -->
+                                <a class="dropdown-item" href="/admin/logout"><i
+                                        class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- end navbar -->
+
+
+        <!-- left sidebar -->
+
+        <div class="nav-left-sidebar">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-xxl navbar-light">
+                    <a class="" href="#" style="color: black; font-size: 1.5em;">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+
+
+                            <% if(true) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/addusers"><i class="fas fa-tachometer-alt"></i>
+                                    Add users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin"><i class="fas fa-tachometer-alt"></i>
+                                    Job Seeker</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/jobs"><i class="fas fa-tachometer-alt"></i>
+                                    Sales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/recruiter"><i class="fas fa-tachometer-alt"></i>
+                                    Recruiter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/videopresenter"><i class="fas fa-tachometer-alt"></i>
+                                    Video presenter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/videoeditor"><i class="fas fa-tachometer-alt"></i>
+                                    Video editor</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/screening"><i class="fas fa-tachometer-alt"></i>
+                                    Screening</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/payment"><i class="fas fa-tachometer-alt"></i>
+                                    Payments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/organization"><i class="fas fa-tachometer-alt"></i>
+                                    Organization</a>
+                            </li>
+                            
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="/admin/livestock"><i class="fas fa-tachometer-alt"></i>
+                                    LiveStock</a>
+                            </li> -->
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="/admin/machinery"><i class="fas fa-tachometer-alt"></i>
+                                    Machinery</a>
+                            </li> -->
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="/admin/mandl"><i class="fas fa-tachometer-alt"></i>
+                                    Machinery / LiveStock
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/agriculture"><i class="fas fa-tachometer-alt"></i>
+                                    Agriculture</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/products"><i class="fas fa-tachometer-alt"></i>
+                                    Buy/Sell</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/notif"><i class="fas fa-tachometer-alt"></i>
+                                    Notification/Email</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/interests"><i class="fas fa-tachometer-alt"></i>
+                                    Interests</a>
+                            </li>
+                             -->
+                            <% } else{ %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-product" aria-controls="submenu-product"><i
+                                        class="fa fa-fw fa-rocket"></i>Products</a>
+                                <div id="submenu-product" class="collapse submenu">
+                                    <ul class="nav flex-column">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/products">All Products</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/add-product">Add New Product</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-banner" aria-controls="submenu-banner"><i
+                                        class="fa fa-fw fa-rocket"></i>Banners</a>
+                                <div id="submenu-banner" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/banners">All Banners</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/add-banner">Add New Banner</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/category"><i class="ti-direction-alt"></i>
+                                    Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/ecommerce"><i
+                                        class="fas fa-shopping-cart"></i>E-Commerce</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/brands"><i class="fas fa-cube"></i>Brands</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/news"><i class="fas fa-cube"></i>News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/jokes"><i class="fas fa-cube"></i>Jokes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/reviews"><i class="fas fa-comment-alt"></i> Reviews</a>
+                            </li>
+                            <% } %>
+                            <% if(false){ %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                    data-target="#submenu-user" aria-controls="submenu-user"><i
+                                        class="fas fa-users"></i>Users</a>
+                                <div id="submenu-user" class="collapse submenu">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/search-user">Search User</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/users/citywise">By City</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/users/statewise">By State</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/users/agewise">By Age</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/admin/users/genderwise">By gender</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <style>
+            .padUp {
+                margin-top: 30px;
+            }
+
+            .size-img {
+                height: 400px;
+                width: 400px;
+                object-fit: contain;
+            }
+        
+            .align-c {
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+        </style>
+        <!-- end left sidebar -->

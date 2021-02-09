@@ -1,0 +1,150 @@
+<%- include('./header') %>
+
+    
+    <div class="dashboard-wrapper">
+      <div class="dashboard-ecommerce">
+        <div class="container-fluid dashboard-content ">
+          
+          <!-- pageheader  -->
+          
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="page-header">
+                <h2 class="pageheader-title">All Jobs</h2>
+                
+                <div class="page-breadcrumb">
+                  <nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Admin</a>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">Payments</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- end pageheader  -->
+      <!-- Top Earning User  -->
+      
+      <div class="row">
+        <div class="col-12">
+          <div class="card text">
+            <nav class="navbar navbar-light bg-light">
+              <div class="d-flex justify-content-end">
+									<h3>Total Revenue : <span id="tot_revenue">0</span></h3>
+              </div>
+            </nav>
+              <div class="d-flex justify-content-between" style="margin-left: auto; margin-right: auto;">
+                  <div class="form-row">
+                    <div class="form-group col-lg-3">
+                      <label for="startDate">Start Date</label>
+                      <input type="date" class="form-control" id="startDate">
+                    </div>
+                    <div class="form-group col-lg-3">
+                      <label for="endDate">End Date</label>
+                      <input type="date" class="form-control" id="endDate">
+                    </div>
+                    <div class="form-group col-lg-2">
+                      <label for="paln">Plan</label>
+                      <select id="plan" class="form-control">
+                        <option value="" selected>Choose plan</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Premium">Premium</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-2">
+                      <label for="clientName">Client Name</label>
+                      <input type="text" class="form-control" id="clientName">
+                    </div>
+                    <div class="form-group col-lg-2">
+                      <button id="filterButton" class="btn btn-sm btn-success" style="height: 2.5em; align-self: center; margin-top: 25px;">Apply Filter</button>
+                    </div>
+                  </div>
+              </div>
+							<div class="card-body p-0">
+								<div class="table-responsive">
+                  <table class="table css-serial">
+										<thead class="bg-light">
+                      <tr class="border-0">
+                        <th class="border-0">#</th>
+												<th class="border-0">Date</th>
+												<th class="border-0">Type</th>
+												<th class="border-0">Client Name</th>
+												<th class="border-0">Qty</th>
+                        <th class="border-0">Amount</th>
+                        <th class="border-0">Net Amount</th>
+											</tr>
+										</thead>
+										<tbody id="clientTableBody">
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Top Earning User  -->
+			</div>
+		</div>
+	</div>
+
+<%- include('./footer') %>
+
+<Script defer>
+  const totRevenue = document.getElementById("tot_revenue");
+  const filterButton = document.getElementById("filterButton");
+  const clientTableBody = document.getElementById("clientTableBody");
+  
+  const renderTable = (clientName = '', plan = '', startDate = '', endDate = '') => {
+    console.log("called function");
+    clientTableBody.innerHTML = ``;
+    let sum = 0;
+    let clientDetailsArray1 = JSON.parse(`<%- JSON.stringify( clientDetails) %>`);
+    let filteredClientArray;
+    let startingDate = new Date(startDate);
+    let endingDate = new Date(endDate);
+    console.log(clientName);
+    console.log(plan);
+    console.log(startingDate);
+    console.log(endingDate);
+    if(!clientName&&!plan&&!startDate&&!endDate){
+      filteredClientArray = clientDetailsArray1;
+    }else{
+      filteredClientArray = clientDetailsArray1.filter((items)=>{
+        let date = new Date(items.date);
+        console.log(date);
+        return items.clientName.toLowerCase().includes(clientName)&&items.type.includes(plan.toLowerCase())&&date>=startingDate&&date<=endingDate;
+      });
+    }
+    for(let i = 0; i<filteredClientArray.length; i++){
+      clientTableBody.innerHTML = clientTableBody.innerHTML + 
+      `<tr>
+        <td class="border-0">${i+1} </td>
+        <td class="border-0">${filteredClientArray[i].date}</td>
+        <td class="border-0">${filteredClientArray[i].type}</td>
+        <td class="border-0"><a href="#" style="color: blue">${filteredClientArray[i].clientName}</a></td>
+        <td class="border-0">${filteredClientArray[i].qty}</td>
+        <td class="border-0"><a href="#" style="color: blue">${filteredClientArray[i].amount}</a></td>
+        <td class="border-0">${filteredClientArray[i].netAmount}</td>
+        </tr>`;
+        sum += filteredClientArray[i].netAmount; 
+      }
+      totRevenue.textContent = sum;
+    }
+    const filterHandler = ()=>{
+      const clientName = document.getElementById("clientName");
+      const plan = document.getElementById("plan");
+      const startDate = document.getElementById("startDate");
+      const endDate = document.getElementById("endDate");
+      renderTable(clientName.value, plan.value, startDate.value, endDate.value);
+    }
+  filterButton.addEventListener("click", filterHandler);
+  
+  renderTable();
+
+  
+  
+  </Script>

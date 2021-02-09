@@ -1,0 +1,271 @@
+<%- include('./header') %>
+
+<!-- wrapper  -->
+
+<div class="dashboard-wrapper">
+	<div class="dashboard-ecommerce">
+		<div class="container-fluid dashboard-content ">
+
+			<!-- pageheader  -->
+
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="page-header">
+						<h2 class="pageheader-title">Jobs</h2>
+
+						<div class="page-breadcrumb">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Admin</a>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">Add Users</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+            </div>
+            <div class="card" style="width: 50rem; margin: 0 auto;" >
+                <div class="row justify-content-center m-5">
+                    <div class="col-9">
+                        <form action="/admin/invite" method="POST" id="inviteForm">
+                            
+							<label for="exampleInputName1">Name</label>
+                              <input type="text" class="form-control" placeholder="Enter Name" name="name" required>
+                              <label for="exampleInputEmail1">Email</label>
+                              <input type="email" class="form-control" placeholder="Enter email" name="email" required>
+                              <label for="exampleInputNumber1">Contact Number</label>
+                              <input type="text" class="form-control" placeholder="Enter number" name="number" required>							  
+							
+                            <h4 class="mb-2">Assign role to the user</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" name="access[recruiter]">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Recruiter team
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" name="access[salesTeam]">
+                                <label class="form-check-label" for="defaultCheck1">
+                                  Sales team
+                                </label>
+                              </div>
+                              <div class="form-check ">
+                                <input class="form-check-input" type="checkbox" value="" name="access[videoPresenter]">
+                                <label class="form-check-label" for="defaultCheck1">
+                                  Video presenter team
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" name="access[videoEditor]">
+                                <label class="form-check-label" for="defaultCheck1">
+                                  Video Editor team
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" name="access[screeningTeam]">
+                                <label class="form-check-label" for="defaultCheck1">
+                                  Screening team
+                                </label>
+                              </div>
+                              <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" value="" name="access[superUser]">
+                                <label class="form-check-label" for="defaultCheck1">
+                                  Super User
+                                </label>
+                              </div>
+                            <button type="submit" class="btn btn-primary btn-block">Invite</button>
+                          </form>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<div class="row justify-content-center">
+			<nav class="d-flex navbar navbar-light bg-light col-11 justify-content-center">
+				<form class="form-inline">
+				  <input class="form-control mr-sm-2" type="search" placeholder="Search Username" aria-label="Search">
+				  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</nav>
+			<table class="table col-11 pb-5">
+				<thead class="thead-dark">
+				  <tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Email</th>
+					<th scope="col">Phone</th>
+					<th scope="col">Role</th>
+					<th scope="col">Actions</th>
+				  </tr>
+				</thead>
+				<tbody>
+					<% let count = 0 %>
+				  <% for(let i = 0; i < users.length; i++) { %>
+				  <tr>
+					<th scope="row"><%= ++count %></th>
+					<td></td>
+					<td><% users[i].email %></td>
+					<td><% users[i].contactNumber %></td>
+					<td><% users[i].roles %></td>
+					<td><a style="color: blue;" data-toggle="collapse" href="#rolemore" role="button" aria-expanded="false" aria-controls="collapseExample" class="nav-link" href="#fat">more</a></td>
+				  </tr>
+				  <tr>
+					  <td colspan="6">
+						<div class="collapse" id="rolemore">
+							<div class="row">
+								<div class="col-4">
+									<div style="height: 100%;" class="d-flex flex-column justify-content-between">
+										<div>
+											<h3 class="m-0 pb-2">Assign Company</h3>
+											<select class="custom-select" id="inputGroupSelect01">
+												<option selected>Choose...</option>
+												<option value="1">Google</option>
+												<option value="2">Amazon</option>
+												<option value="3">Facebook</option>
+												<option value="4">Filpcart</option>
+												<option value="4">Acceneture</option>
+												<option value="4">Daphnis</option>
+											</select>
+										</div>
+										
+										<div class="">
+											<button type="button" class="btn btn-light">Google</button>
+											<button type="button" class="btn btn-light">Amazon</button>
+											<button type="button" class="btn btn-light">Facebook</button>
+											<button type="button" class="btn btn-light">Acceneture</button>
+										</div>
+										<button type="submit" class="btn btn-primary btn-block">Assign companies</button>
+									</div>
+								</div>
+								<div class="col-4">
+									<h3 class="m-0 pb-2">Edit Role</h3>
+									<form>
+										<h4 class="mb-2">Assign role to the user</h4>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+											<label class="form-check-label" for="defaultCheck1">
+												Recruiter team
+											</label>
+										  </div>
+										  <div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
+											<label class="form-check-label" for="defaultCheck1">
+											  Sales team
+											</label>
+										  </div>
+										  <div class="form-check ">
+											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+											<label class="form-check-label" for="defaultCheck1">
+											  Video presenter team
+											</label>
+										  </div>
+										  <div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+											<label class="form-check-label" for="defaultCheck1">
+											  Video Editor team
+											</label>
+										  </div>
+										  <div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+											<label class="form-check-label" for="defaultCheck1">
+											  Screening team
+											</label>
+										  </div>
+										  <div class="form-check mb-4">
+											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+											<label class="form-check-label" for="defaultCheck1">
+											  Super User
+											</label>
+										  </div>
+									  </form>
+									  <button type="submit" class="btn btn-primary btn-block align-self-end">Update Role</button>
+									</div>
+								<div class="col-4 d-flex flex-column justify-content-between">
+									<div>
+										<h3 class="m-0 pb-2">Reset password</h3>
+										<button type="submit" class="btn btn-dark btn-block my-2">Reset password</button>
+									</div>
+									<div>
+										<h3 class="m-0 pb-2">Delete User</h3>
+										<button type="submit" class="btn btn-danger btn-block my-2">Delete User</button>
+									</div>
+								</div>	  
+							</div>
+						  </div>
+					  </td>
+				  </tr>
+				  <% } %>
+				  <tr>
+					<th scope="row">2</th>
+					<td>Mark</td>
+					<td>asbabjbjb@gmail.com</td>
+					<td>8664513219</td>
+					<td>Recruiter</td>
+					<td><a style="color: blue;" class="nav-link" href="#fat">more</a></td>
+				  </tr>
+				  <tr>
+					<th scope="row">3</th>
+					<td>Mark</td>
+					<td>asbabjbjb@gmail.com</td>
+					<td>8664513219</td>
+					<td>Video presenter</td>
+					<td><a style="color: blue;" class="nav-link" href="#fat">more</a></td>
+				  </tr>
+				</tbody>
+			  </table>
+		</div>
+	</div>
+    </div>
+    
+	<%- include('./footer') %>
+	<Script>
+		if ($('#c3chart_zoom').length) {
+			var chart = c3.generate({
+				bindto: "#c3chart_zoom",
+				data: {
+					x: 'x',
+					columns: [
+						['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+						['ending', 78, 8, 5, 8, 2, 8, 2, 8, 2, 8, 2, 8, 8],
+						['sample', 30, 200, 100, 400, 150, 250, 150, 200, 170, 240, 350, 150, 100, 400, 150, 250,
+							150, 200, 170, 240, 100, 150, 250, 150, 200, 170, 240, 30, 200, 100, 400, 150, 250,
+							150, 200, 170, 240, 350, 150, 100, 400, 350, 220, 250, 300, 270, 140, 150, 90, 150,
+							50, 120, 70, 40
+						]
+					],
+
+					colors: {
+						sample: '#5969ff',
+						ending: ''
+					}
+				},
+				zoom: {
+					enabled: true
+				},
+				axis: {
+					y: {
+						show: true,
+
+
+					},
+					x: {
+						show: true,
+						type: 'timeseries',
+						tick: {
+							format: '%m-%d'
+						}
+					}
+				}
+
+			});
+		}
+		setTimeout(function () {
+			chart.load({
+				columns: [
+					['data3', 400, 500, 450, 700, 0, 500]
+				]
+			});
+		}, 1000);
+    
+    </Script>
+    

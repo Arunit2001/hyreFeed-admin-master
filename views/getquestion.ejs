@@ -1,0 +1,152 @@
+<%- include('./header') %>
+
+<!-- wrapper  -->
+
+<div class="dashboard-wrapper">
+	<div class="dashboard-ecommerce">
+		<div class="container-fluid dashboard-content ">
+
+			<!-- pageheader  -->
+
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="page-header">
+						<h2 class="pageheader-title">Question</h2>
+
+						<div class="page-breadcrumb">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Admin</a>
+									</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Recruiter</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Question</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- end pageheader  -->
+
+			<ul class="list-group">
+				<li class="list-group-item"><h4>Question description: </h4><p>what is your total exprience?</p></li>
+				<li class="list-group-item"><h4>Question Type: </h4><p>MCQ</p></li>
+				<li class="list-group-item"><h4 class="d-inline">Option 2: </h4><p class="d-inline ml-2">1 year</p>
+					<select class="custom-select mt-2">
+					<option selected>Select the response question</option>
+					<option value="1"></option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				  </select>
+				  </li>
+				<li class="list-group-item"><h4 class="d-inline">Option 2: </h4><p class="d-inline ml-2">2 years</p>
+					<select class="custom-select mt-2">
+					<option selected>Select the response question</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				  </select>
+				  </li>
+				<li class="list-group-item"><h4 class="d-inline">Option 2: </h4><p class="d-inline ml-2">3 years</p>
+					<select class="custom-select mt-2">
+					<option selected>Select the response question</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				  </select>
+				  </li>
+				<li class="list-group-item"><h4 class="d-inline">Option 2: </h4><p class="d-inline ml-2">3+ years</p>
+					<select class="custom-select mt-2">
+					<option selected>Select the response question</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+					<option value="3">Three</option>
+				  </select>
+				  </li>
+				  <li class="list-group-item">
+					<button type="button" class="btn btn-primary">Save as Draft</button>
+					<button type="button" class="btn btn-primary">Share with Marketing team</button>
+				  </select>
+				</li>
+			</ul>
+			
+
+				<!-- Top Earning User  -->
+
+				
+							<!-- <div class="text-center">
+								<nav aria-label="Page navigation">
+									<ul class="pagination">
+										<li class="page-item">
+											<a class="page-link" href="#" aria-label="Previous">
+												<span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span>      </a>
+										</li>
+										<li class="page-item active"><a class="page-link" href="#">1</a></li>
+										<li class="page-item"><a class="page-link" href="#">2</a></li>
+										<li class="page-item"><a class="page-link" href="#">3</a></li>
+										<li class="page-item">
+											<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span>
+											   <span class="sr-only">Next</span></a>
+										</li>
+									</ul>
+								</nav>
+							</div> -->
+						</div>
+					</div>
+				</div>
+
+				<!-- Top Earning User  -->
+			</div>
+		</div>
+	</div>
+	<Script>
+		if ($('#c3chart_zoom').length) {
+			var chart = c3.generate({
+				bindto: "#c3chart_zoom",
+				data: {
+					x: 'x',
+					columns: [
+						['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+						['ending', 78, 8, 5, 8, 2, 8, 2, 8, 2, 8, 2, 8, 8],
+						['sample', 30, 200, 100, 400, 150, 250, 150, 200, 170, 240, 350, 150, 100, 400, 150, 250,
+							150, 200, 170, 240, 100, 150, 250, 150, 200, 170, 240, 30, 200, 100, 400, 150, 250,
+							150, 200, 170, 240, 350, 150, 100, 400, 350, 220, 250, 300, 270, 140, 150, 90, 150,
+							50, 120, 70, 40
+						]
+					],
+
+					colors: {
+						sample: '#5969ff',
+						ending: ''
+					}
+				},
+				zoom: {
+					enabled: true
+				},
+				axis: {
+					y: {
+						show: true,
+
+
+					},
+					x: {
+						show: true,
+						type: 'timeseries',
+						tick: {
+							format: '%m-%d'
+						}
+					}
+				}
+
+			});
+		}
+		setTimeout(function () {
+			chart.load({
+				columns: [
+					['data3', 400, 500, 450, 700, 0, 500]
+				]
+			});
+		}, 1000);
+
+	</Script>

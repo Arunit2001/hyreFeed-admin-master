@@ -1,0 +1,613 @@
+<%- include('./header') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet"
+    type="text/css" />
+  <link href="/vendor/fonts/circular-std/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/libs/css/style.css" />
+  <link rel="stylesheet" href="/vendor/fonts/fontawesome/css/fontawesome-all.css" />
+  <link rel="stylesheet" href="/vendor/fonts/themify-icons/themify-icons.css" />
+  <link rel="stylesheet" href="/vendor/charts/chartist-bundle/chartist.css" />
+  <link rel="stylesheet" href="/vendor/charts/morris-bundle/morris.css" />
+  <link rel="stylesheet" href="/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="/vendor/charts/c3charts/c3.css" />
+  <link rel="stylesheet" href="/vendor/fonts/flag-icon-css/flag-icon.min.css" />
+  <link rel="stylesheet" href="/vendor/select2/css/select2.css" />
+  <link rel="stylesheet" href="/vendor/summernote/css/summernote-bs4.css" />
+  <link rel="stylesheet" href="/libs/css/bootstrap-multiselect.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="/libs/css/jquery.timepicker.min.css" type="text/css"/> -->
+
+  <style type="text/css">
+    #languages-form {
+      width: 100%;
+    }
+  </style>
+  <title>PRABHUBHAKTI</title>
+  <style>
+    .css-serial {
+      counter-reset: serial-number;
+      /* Set the serial number counter to 0 */
+    }
+
+    .css-serial td:first-child:before {
+      counter-increment: serial-number;
+      /* Increment the serial number counter */
+      content: counter(serial-number);
+      /* Display the counter */
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <!-- wrapper  -->
+
+  <div class="dashboard-wrapper">
+    <div class="dashboard-ecommerce">
+      <div class="container-fluid dashboard-content">
+
+        <!-- pageheader  -->
+
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-header">
+              <div class="text-danger text-center"><b> </b></div>
+              <div class="text-success text-center"><b> </b></div>
+              <h2 class="pageheader-title">User Info</h2>
+              <div class="page-breadcrumb">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="/" class="breadcrumb-link">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      User Profile
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- end pageheader  -->
+
+
+        <div class="">
+          <div class="row">
+
+            <!-- profile -->
+
+            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
+
+              <!-- card profile -->
+
+              <div class="card">
+                <div class="card-body">
+                  <div class="user-avatar text-center d-block">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-user fa-5x"></i> -->
+                  </div>
+                  <div class="text-center">
+                    <h2 class="font-24 mb-0">name</h2>
+                    <p>@user@gmail.com</p>
+                    <!-- <p>Project Manager @Influnce</p> -->
+                    <!-- <div>
+                                                <p class="text-muted">ranjeet@gmail.com</p>
+                                            </div> -->
+                  </div>
+                </div>
+                <div class="card-body border-top">
+                  <h3 class="font-16">Contact Information</h3>
+                  <div class="">
+                    <ul class="list-unstyled mb-0">
+                      <li>
+                        <i class="fas fa-envelope mr-2">user@gmail.com</i>
+                      </li>
+                      <li class="mb-2">
+                        <i class="fas fa-fw fa-phone mr-2"></i>8660963056
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body border-top">
+                  <h3 class="font-16">Other Information</h3>
+                  <ul class="list-unstyled mb-0">
+                    <!-- <li class="mb-2"><i class="fas fa-calendar mr-2"></i> May 12, 2020</li> -->
+                    <li class="mb-2">
+                      <i class="fas fa-calendar mr-2"></i> dob: 28/10/1997
+                    </li>
+                    <li class="mb-0">
+                      <i class="fas fa-map-marker-alt mr-2"></i> state,city
+                    </li>
+                    <br />
+                    <li class="mb-1">Highest level of education: BE</li> 
+                    <li class="mb-1">
+                      Languages : English, kannada, hindi
+                    </li>
+                    <li class="mb-1">Gender: Male </li>
+                    <li class="mb-1">
+                      Joining Date : 29/10/2019
+                    </li>
+                    <li class="mb-4">
+                      <a href="/admin/userinfo" type="button" class="btn btn-primary" style="color: white;">More info</a>
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#openresume">Open resume</button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="modal fade" id="openresume" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Resume User Name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <img src="https://d.novoresume.com/images/doc/functional-resume-template.png" class="img-fluid" alt="Responsive image">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Download Resume</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body border-top">
+                  <!-- <h3 class="font-16">Block/Unblock</h3>  -->
+                  <div>
+                    <div class="modal fade" id="editAstroModal" role="dialog">
+                      <div class="modal-dialog">
+                      
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Edit User Details</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            
+                          </div>
+                          <div class="modal-body">
+                            <form action="/admin/user/update?_method=PUT" method="POST">
+                              <div class="form-group">
+                                  <label>Interests</label>
+                                  <input class="form-control" type="text" name="interests" placeholder="Add an interests"
+                                      autocomplete="off">
+                              </div>
+                              <div class="form-group">
+                                <label>Languages</label>
+                                <input class="form-control" type="text" name="language" placeholder="Add a language"
+                                    autocomplete="off">
+                            </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" >Submit</button>
+                              </div>
+                            </form>
+                          </div>
+
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <!-- <a href="/admin/user/update" class="btn btn-primary">Edit</a> -->
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- end card profile -->
+
+            </div>
+
+            <!-- end profile -->
+
+
+
+            <!-- campaign data -->
+
+            <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
+
+              <!-- campaign tab one -->
+
+              <div class="influence-profile-content pills-regular">
+                <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign"
+                      role="tab" aria-controls="pills-campaign" aria-selected="true">Application list</a>
+                  </li>
+                  
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab"
+                      aria-controls="pills-review" aria-selected="false">Answers
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="pills-saved-ques-tab" data-toggle="pill" href="#pills-saved-ques" role="tab"
+                      aria-controls="pills-saved-ques" aria-selected="false">Saved Questions
+                    </a>
+				          </li>
+				  <li class="nav-item">
+                    <a class="nav-link" id="pills-sale-item-tab" data-toggle="pill" href="#pills-sale-item" role="tab"
+                      aria-controls="pills-sale-item" aria-selected="false">Items posted for sale</a>
+				  </li>
+				  <li class="nav-item">
+                    <a class="nav-link" id="pills-req-item-tab" data-toggle="pill" href="#pills-req-item" role="tab"
+                      aria-controls="pills-req-item" aria-selected="false">Purchase requests</a>
+				  </li> -->
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-campaign" role="tabpanel"
+                    aria-labelledby="pills-campaign-tab">
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                          <div class="card-header">
+							<h5 class="m-0">Applications</h5>
+						</div>
+                          <div class="card-body p-0">
+								<div class="table-responsive">
+									<table class="table css-serial">
+									<tbody>
+                    
+									</tbody>
+									</table>
+								</div>
+							</div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+                    <div class="row">
+
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                          <h5 class="card-header">Your Answers</h5>
+                          <div class="card-body p-0">
+                            <div class="table-responsive">
+                              <table class="table css-serial">
+                                <tbody>
+                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-saved-ques" role="tabpanel" aria-labelledby="pills-saved-ques-tab">
+                    <div class="row">
+
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                          <h5 class="card-header">Your Saved Questions</h5>
+                          <div class="card-body p-0">
+                            <div class="table-responsive">
+                              <table class="table css-serial">
+                                <tbody>
+                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+				  </div>
+				  <div class="tab-pane fade" id="pills-sale-item" role="tabpanel" aria-labelledby="pills-sale-item-tab">
+                    <div class="row">
+
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                          <h5 class="card-header">Items</h5>
+                          <div class="card-body p-0">
+                            <div class="table-responsive">
+                              <table class="table css-serial">
+								<thead class="bg-light">
+									<tr class="border-0">
+									  <th class="border-0">#</th>
+									  <th class="border-0">Item</th>
+									  <th class="border-0">Price</th>
+									</tr>
+								</thead>
+                                <tbody>
+                  
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+					</div>
+                    </div>
+				  </div>
+				  <div class="tab-pane fade" id="pills-req-item" role="tabpanel" aria-labelledby="pills-req-item-tab">
+					<div class="row">
+
+
+					  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<div class="card">
+						  <h5 class="card-header">Requests</h5>
+						  <div class="card-body p-0">
+							<div class="table-responsive">
+							  <table class="table css-serial">
+								<thead class="bg-light">
+									<tr class="border-0">
+									  <th class="border-0">#</th>
+									  <th class="border-0">Item</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td>Rathi Cattle</td>
+									</tr>
+								</tbody>
+							  </table>
+							</div>
+						  </div>
+						</div>
+					  </div>
+                </div>
+              </div>
+
+              <!-- end campaign tab one -->
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                  <div class="card text">
+                    <nav class="navbar navbar-light bg-light justify-content-between">
+                      <h4 class="m-0">Rudresh's Applications</h4>
+                      <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search application" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      </form>
+                      </nav>
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table css-serial">
+                          <thead class="bg-light">
+                            <tr class="border-0">
+                              <th class="border-0">#</th>
+                              <th class="border-0">Job id</th>
+                              <th class="border-0">Company</th>
+                              <th class="border-0">designation</th>
+                              <th class="border-0">Expirence</th>
+                              <th class="border-0">Status</th>
+                              <th class="border-0">Salary</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            
+                            <tr>
+                              <td>.</td>
+                              <td class="border-0"><a href="/admin/application" style="color: blue">google123</a></td>
+                              <td class="border-0">Google</td>
+                              <td class="border-0">Associate software developer</td>
+                              <td class="border-0">3-5 years</td>
+                              <td class="border-0">Shortlisted</td>
+                              <td class="border-0">2000000</td>
+                            </tr>
+                            <tr>
+                              <td>.</td>
+                              <td class="border-0"><a href="/admin/application" style="color: blue">facebook123</a></td>
+                              <td class="border-0">Facebook</td>
+                              <td class="border-0">Web designer</td>
+                              <td class="border-0">1-2 years</td>
+                              <td class="border-0">seen</td>
+                              <td class="border-0">Not mentioned</button></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!-- <div class="text-center">
+                      <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span>      </a>
+                          </li>
+                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span>
+                               <span class="sr-only">Next</span></a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="editBadgesModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Edit Badges
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <div class="form-group">
+                  <label for="">Badges</label>
+                  <input type="text" class="form-control" name="id" value="badge  " />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+
+      <!-- Modal images -->
+      <div class="modal fade" id="addPhotoModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Add Image
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="../admin/astrologer/image" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input class="form-control form-control-lg" id="uuid" name="uuid" type="text" placeholder="User ID"
+                    autocomplete="off" value="@rdd3434" required hidden />
+                </div>
+                <div class="form-group">
+                  <div class="custom-file mb-2">
+                    <img src="/images/avatar-1.jpg" id="selected_img" width="45" height="45" class="img mb-2" alt="" />
+                    <div class="custom-file mb-2">
+                      <input type="file" class="custom-file-input" id="photo" name="photo" onchange="readURL(this);" />
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="modal-footer">
+                  <button type="submit" name="submit" id="submit" class="btn btn-primary">
+                    Add Image
+                  </button>
+                </div>
+                <!-- <div class="form-group">
+                        <button type="submit" name="submit" id="submit" class="btn btn-primary btn-lg btn-block">Add Image</button>
+                    </div> -->
+              </form>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+
+	</div>
+
+
+    </div>
+
+    <!-- end wrapper  -->
+
+  </div>
+
+  <!-- end main wrapper  -->
+
+  <!-- Optional JavaScript -->
+  <!-- jquery 3.3.1 -->
+  <script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
+  <!-- bootstap bundle js -->
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <!-- slimscroll js -->
+  <script src="/vendor/slimscroll/jquery.slimscroll.js"></script>
+  <!-- multi select -->
+  <script src="/vendor/select2/js/select2.min.js"></script>
+  <!-- summernote -->
+  <!-- <script src="/vendor/summernote/js/summernote-bs4.js"></script> -->
+  <!-- main js -->
+  <script src="/libs/js/main-js.js"></script>
+  <!-- chart chartist js -->
+  <!-- <script src="/vendor/charts/chartist-bundle/chartist.min.js"></script> -->
+  <!-- sparkline js -->
+  <!-- <script src="/vendor/charts/sparkline/jquery.sparkline.js"></script> -->
+  <!-- morris js -->
+  <!-- <script src="/vendor/charts/morris-bundle/raphael.min.js"></script> -->
+  <!-- <script src="/vendor/charts/morris-bundle/morris.js"></script> -->
+  <!-- chart c3 js -->
+  <!-- <script src="/vendor/charts/c3charts/c3.min.js"></script> -->
+  <!-- <script src="/vendor/charts/c3charts/d3-5.4.0.min.js"></script> -->
+  <!-- <script src="/vendor/charts/c3charts/C3chartjs.js"></script> -->
+  <script src="/libs/js/dashboard-ecommerce.js"></script>
+
+  <script type="text/javascript" src="/libs/js/bootstrap-multiselect.js"></script>
+  <!-- <script type="text/javascript" src="/libs/js/jquery.timepicker.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+  <script type="text/javascript">
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#selected_img').attr('src', e.target.result);
+          // $('#selected_img')
+          //     .attr('src', e.target.result)
+          //     .width(150)
+          //     .height(200);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#languages').multiselect();
+      $('#badges').multiselect();
+      // $('input.timepicker').timepicker();
+    });
+        // $('#language-form').multiselect({
+        //     enableFiltering: true,
+        //     includeSelectAllOption: true,
+        //     selectAllJustVisible: false
+        // });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $('.timepicker').timepicker({
+        timeFormat: 'h:mm p',
+        interval: 30,
+        minTime: '8',
+        maxTime: '11:30pm',
+        startTime: '08:00',
+        dynamic: true,
+        dropdown: true,
+        scrollbar: true,
+      });
+    });
+  </script>
+
+  <!-- </body> -->
+
+  <!-- </html> -->
+  </div>
+
+<%- include('./footer') %>

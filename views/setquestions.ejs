@@ -1,0 +1,754 @@
+<%- include('./header') %>
+
+<!-- wrapper  -->
+<% let types = ["none","mcq","subjective","","end"] %>
+<div class="dashboard-wrapper">
+	<div class="dashboard-ecommerce">
+		<div class="container-fluid dashboard-content ">
+
+			<!-- pageheader  -->
+
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="page-header">
+						<h2 class="pageheader-title">Set Questions</h2>
+
+						<div class="page-breadcrumb">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Admin</a>
+									</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Recruiter</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Set Questions</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<ul class="nav nav-pills mb-3 col-8 d-flex justify-content-around" id="pills-tab" role="tablist">
+					<li class="nav-item mr-4 mb-5">
+					  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Skill set</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link " id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Salary</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link " id="pills-company-tab" data-toggle="pill" href="#pills-company" role="tab" aria-controls="pills-company" aria-selected="false">Company</a>
+					</li>
+				</ul>
+			</div>
+			  <div class="tab-content" id="pills-tabContent">
+				<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+					<div class="row">
+						<div class="card col-9 mt-0 mb-4 mx-auto">
+							<div class="card-body">
+							  <h2 class="card-title mb-2">Job Details</h2>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item"><h5>Job title</h5>
+									<p><%= jobdesc.title %> </p>
+								</li>
+								<li class="list-group-item">
+									<h5>Job type</h5>
+									<p><%= jobdesc.jobType %> </p>
+									<h5>location</h5>
+									<p><%= jobdesc.location %></p>
+								</li>
+								<li class="list-group-item">
+									<h5>Day to day responsibilities</h5>
+									<p><%= jobdesc.responsibility %></p>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+						<div class="row">
+							<div class="card col-9 mt-0 mb-4 mx-auto">
+								<div class="card-body">
+								  <h2 class="card-title mb-2">Education</h2>
+								</div>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										<h5>Education</h5>
+										<p><a><%= jobdesc.education %></a></p>
+									</li>
+									<li class="list-group-item">
+										<h5>Any preferred stream</h5>
+										<p><a><%= jobdesc.stream %></a></p>
+									</li>
+									<li class="list-group-item">
+										<h5>Tier 1 college</h5>
+										<p><a><%= jobdesc.tier1 %></a></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="card col-9 mt-0 mb-4 mx-auto">
+								<div class="card-body">
+								  <h2 class="card-title mb-2">Experience required</h2>
+								</div>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										<h5>Years of experience</h5>
+										<p><a><%= jobdesc.experience %></a></p>
+									</li>
+									<li class="list-group-item">
+										<h5>Experience required in Any specific skills set </h5>
+										<% if ( jobdesc.skill ) { %> 
+										<% for(let i = 0; i< jobdesc.skill.length; i++) { %> 
+										<p><%= jobdesc.skill[[i]] %> : <%= jobdesc.skillExperience[i] %></p>
+										<% } %> 
+										<% } %> 
+									</li>
+									<li class="list-group-item">
+										<h5>Experience required in Any specific industry </h5>
+										<% if (jobdesc.industry) { %>
+											<% for(let i = 0; i<jobdesc.industry; i++) { %>  
+												<p><%= jobdesc.industry[i] %> : <%= jobdesc.industryExperience[i] %></p>
+											<% } %> 
+										<% } %> 
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="card col-9 mt-0 mb-4 mx-auto">
+								<div class="card-body">
+								  <h2 class="card-title mb-2">Terms and Conditions</h2>
+								</div>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item">
+										<% if (jobdesc.bond) { %> 
+										<h5>Bond</h5>
+										<p> <%= jobdesc.bond %>  </p>
+										<% } %> 
+									</li>
+									<li class="list-group-item">
+										<% if(jobdesc.others) { %> 
+										<h5>Any other requirement</h5>
+										<% for(let i = 0; i<jobdesc.others.length; i++) { %> 
+											<p><%= jobdesc.others[i] %></p>
+										<% } %> 
+										<% } %> 
+									</li>
+								</ul>
+							</div>
+						</div>
+					<div class="card mb-5" style="width: 70%; margin: 0 auto;" >
+						<h2 class=" mt-3 mb-0 mx-auto">Set Question</h2>
+						<div class="row justify-content-center m-5">
+							<div class="col-10">
+								<form action="/admin/postquestion/<%= jobdesc.id %>" method="POST" >
+									<div class= "form-group" id="topic_type">
+										<label for="question_topic"><h3>Question on: </h3></label>
+										<select class="custom-select mb-3" name="question_topic" id="question_topic" required>
+											<option value="salary">Salary</option>
+											<option value="company">Company</option>
+											<option value="skill" selected>Skill</option>
+										</select>
+									</div>
+									<select class="custom-select mb-3" id="selectType" name="question_type" required>
+										<option value="" selected>Select the question type</option>
+										<option value="subjective">Subjective</option>
+										<option value="mcq">MCQ</option>
+										<!-- <option value="audio">Subjective Audio</option> -->
+										<option value="end">Ending Question</option>
+									</select>
+									<div class="form-group d-none" id="questionText">
+										<label for="exampleFormControlTextarea1">Question</label>
+										<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ask your question here" name="question" required></textarea>			
+									</div>
+									<!-- <div class="form-group d-none" id="pick-image" style="display: block;" required>
+										<h6>Choose an audio file</h6>
+										<input class="form-control form-control-lg" name="audio" type="file" accept="audio/*" id="audio" >
+									</div> -->
+									<div id="expected"class="d-none">
+										<label for="expectedAnswer">Expected Answer</label>
+										<textarea class="form-control" id="expectedAnswer" rows="3" placeholder="Expected answer here" name="expectedAnswer"></textarea>
+									</div>
+									<div id="options" class="d-none">
+									<div id="optionsmcq">
+										<div class="form-group" id="option0">
+											<label for="exampleInputEmail1">Option 1</label>
+											<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your first option" name="option[0]">
+											
+										</div>
+										<div class="form-group" id="option1">
+											<label for="exampleInputEmail1">Option 2</label>
+											<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your second option" name="option[1]">
+											
+										</div>
+									</div>
+										<button class="btn btn-outline btn-success" type="button" id="adder"
+                    						style="padding: 6px 10px; float: right;"
+											onclick="addOption()">Add Option</button>
+											
+										<!-- <div id="optThree" class="form-group">
+											<label for="exampleInputEmail1">Option 3</label>
+											<div class="d-flex">
+												<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your thrid option" name="option3">
+												<button id="removeOptThree" type="button" class="btn btn-danger ml-2">Remove</button>
+											</div>
+										</div> -->
+
+										<!-- <div id="optFour" class="form-group">
+											<label for="exampleInputEmail1">Option 4</label>
+											<div class="d-flex">
+												<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your fourth option" name="option4">
+												<button id="removeOptFour" type="button" class="btn btn-danger ml-2">Remove</button>
+											</div>
+										</div> -->
+									</div>
+									
+									<button type="submit" class="btn btn-primary mt-3">Submit</button>
+								  </form>
+							</div>
+						</div>
+					</div>
+					<% let skillCount = 0 %>
+					<% let skillquestions = [] %>
+					<% for (let i = 0; i < jobVideos.length; i++) { %>
+						<% if(jobVideos[i].name == "skill") { %> 
+							<% skillCount += 1 %>
+							<% skillquestions.push(jobVideos[i].id) %> 
+						<% } %>
+					<% } %>  
+					<% let count = 0 %>
+					<div>
+					<form action="/admin/savenextquestions/<%= jobdesc.id %>" class="form-group" method="POST">
+					<% for (let i = 0; i < jobVideos.length; i++) { %>
+						<% if(jobVideos[i].name == "skill") { %> 
+							
+							<ul class="list-group">
+								<li class="list-group-item"><h4>Question <%= ++count %> .</h4><p><span><%= jobVideos[i].question %> </span></p></li>
+								<li class="list-group-item"><h4>Question Type: </h4><p><%= types[jobVideos[i].questionType] %> </p></li>
+								<input type="hidden" value="<%= jobVideos[i].id %>" name="jobVideoNew[<%= jobVideos[i].id %>][id]">
+								<% if(jobVideos[i].questionType == 1){ %>
+									<% if(jobVideos[i].mcqOptions.length) { %>
+										 <% for(let j = 0; j<jobVideos[i].mcqOptions.length;j++) { %>
+
+											<li class="list-group-item"><h4 class="d-inline">Option <%= (j+1) %> : </h4><p class="d-inline ml-2"><%= jobVideos[i].mcqOptions[j].answer %> </p>
+												<input type="hidden" name="jobVideoNew[<%= jobVideos[i] %>][mcq][answer]" value="<%= jobVideos[i].mcqOptions[j].answer %>">
+												<select class="custom-select mt-2" name="jobVideoNew[<%= jobVideos[i].id %>][mcq][nextVideo]" required>
+													<option selected>Select the response question</option>
+													<option value="0">None(move to the end of the video)</option>
+													<% for(let k = 0; k<skillCount; k++) { %> 
+													<option value="<%= skillquestions[k] %>">Question <%= k+1 %></option>
+													<% } %> 
+												</select>
+											</li>
+										<% } %> 
+									<% } %> 
+								<% } else { %>
+									<% if(jobVideos[i].mcqOptions.length) { %>
+										<% for(let j = 0; j<jobVideos[i].mcqOptions.length;j++) { %> 
+										   <li class="list-group-item"><h4 class="d-inline">Option <%= (j+1) %> : </h4><p class="d-inline ml-2"><%= jobVideos[i].mcqOptions[j].answer %> </p>
+											   <select class="custom-select mt-2" name="jobVideoNew[<%= jobVideos[i].id %>][mcq][nextVideo]" required>
+												   <option selected>Select the response question</option>
+												   <option value="0">None(move to the end of the video)</option>
+												   <% for(let k = 0; k<skillCount; k++) { %> 
+												   <option value="<%= skillquestions[k] %>">Question <%= k+1 %></option>
+												   <% } %> 
+											   </select>
+										   </li>
+									   <% } %> 
+								   <% } else { %>
+										<li class="list-group-item">
+											<select class="custom-select mt-2" name="jobVideoNew[<%= jobVideos[i].id %>][nextVideo_id]" required>
+												<option selected>Select the response question</option>
+												<option value="0">None(move to the end of the video)</option>
+												<% for(let k = 0; k<skillCount; k++) { %> 
+												<option value="<%= skillquestions[k] %>">Question <%= k+1 %></option>
+												<% } %> 
+											</select>
+										</li>
+									<% } %>  
+								<% } %>  
+								
+							</ul>
+							
+						<% } %> 	
+					<% } %>
+					
+						<button type="submit"  class="btn btn-primary">Save Response</button>
+					
+					</form>
+					</div>
+					<button type="button" class="btn btn-primary">Share with Marketing team</button>
+				</div>
+				<!--  -->
+					<div class="tab-pane fade row" id="pills-company" role="tabpanel" aria-labelledby="pills-company-tab">
+						<div class="row">
+							<div class="card col-9 mt-0 mb-4 mx-auto">
+								<div class="card-body">
+								  <h2 class="card-title mb-2">Job Details</h2>
+								</div>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item"><h5>Job title</h5>
+										<p><%= jobdesc.title %> </p>
+									</li>
+									<li class="list-group-item">
+										<h5>Job type</h5>
+										<p><%= jobdesc.jobType %> </p>
+										<h5>location</h5>
+										<p><%= jobdesc.location %></p>
+									</li>
+									<li class="list-group-item">
+										<h5>Day to day responsibilities</h5>
+										<p><%= jobdesc.responsibility %></p>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+							<div class="row">
+								<div class="card col-9 mt-0 mb-4 mx-auto">
+									<div class="card-body">
+									  <h2 class="card-title mb-2">Education</h2>
+									</div>
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+											<h5>Education</h5>
+											<p><a><%= jobdesc.education %></a></p>
+										</li>
+										<li class="list-group-item">
+											<h5>Any preferred stream</h5>
+											<p><a><%= jobdesc.stream %></a></p>
+										</li>
+										<li class="list-group-item">
+											<h5>Tier 1 college</h5>
+											<p><a><%= jobdesc.tier1 %></a></p>
+										</li>
+									</ul>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="card col-9 mt-0 mb-4 mx-auto">
+									<div class="card-body">
+									  <h2 class="card-title mb-2">Experience required</h2>
+									</div>
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+											<h5>Years of experience</h5>
+											<p><a><%= jobdesc.experience %></a></p>
+										</li>
+										<li class="list-group-item">
+											<h5>Experience required in Any specific skills set </h5>
+											<% if ( jobdesc.skill ) { %> 
+											<% for(let i = 0; i< jobdesc.skill.length; i++) { %> 
+											<p><%= jobdesc.skill[[i]] %> : <%= jobdesc.skillExperience[i] %></p>
+											<% } %> 
+											<% } %> 
+										</li>
+										<li class="list-group-item">
+											<h5>Experience required in Any specific industry </h5>
+											<% if (jobdesc.industry) { %>
+												<% for(let i = 0; i<jobdesc.industry; i++) { %>  
+													<p><%= jobdesc.industry[i] %> : <%= jobdesc.industryExperience[i] %></p>
+												<% } %> 
+											<% } %> 
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="row">
+								<div class="card col-9 mt-0 mb-4 mx-auto">
+									<div class="card-body">
+									  <h2 class="card-title mb-2">Terms and Conditions</h2>
+									</div>
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">
+											<% if (jobdesc.bond) { %> 
+											<h5>Bond</h5>
+											<p> <%= jobdesc.bond %>  </p>
+											<% } %> 
+										</li>
+										<li class="list-group-item">
+											<% if(jobdesc.others) { %> 
+											<h5>Any other requirement</h5>
+											<% for(let i = 0; i<jobdesc.others.length; i++) { %> 
+												<p><%= jobdesc.others[i] %></p>
+											<% } %> 
+											<% } %> 
+										</li>
+									</ul>
+								</div>
+							</div>
+						<div class="card mb-5" style="width: 70%; margin: 0 auto;" >
+							<h2 class=" mt-3 mb-0 mx-auto">Set Question</h2>
+							<div class="row justify-content-center m-5">
+								<div class="col-10">
+									<form action="/admin/postquestion/<%= jobdesc.id %>" method="POST" >
+										<div class= "form-group" id="topic_type">
+											<label for="question_topic"><h3>Question on: </h3></label>
+											<select class="custom-select mb-3" name="question_topic" id="question_topic" required>
+												<option value="salary">Salary</option>
+												<option value="company" selected>Company</option>
+												<option value="skill" >Skill</option>
+											</select>
+										</div>
+										<select class="custom-select mb-3" id="selectType3" name="question_type" required>
+											<option value="" selected>Select the question type</option>
+											<option value="subjective">Subjective</option>
+											<option value="mcq">MCQ</option>
+											<!-- <option value="audio">Subjective Audio</option> -->
+											<option value="end">Ending Question</option>
+										</select>
+										<div class="form-group d-none" id="questionText3">
+											<label for="exampleFormControlTextarea1">Question</label>
+											<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ask your question here" name="question" required></textarea>			
+										</div>
+										<div id="expected3"class="d-none">
+											<label for="expectedAnswer">Expected Answer</label>
+											<textarea class="form-control" id="expectedAnswer" rows="3" placeholder="Expected answer here" name="expectedAnswer"></textarea>
+										</div>
+										<div id="options3" class="d-none">
+										<div id="optionsmcq3">
+											<div class="form-group" id="option3-0">
+												<label for="exampleInputEmail1">Option 1</label>
+												<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your first option" name="option[0]">
+												
+											</div>
+											<div class="form-group" id="option3-1">
+												<label for="exampleInputEmail1">Option 2</label>
+												<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your second option" name="option[1]">
+												
+											</div>
+										</div>
+											<button class="btn btn-outline btn-success" type="button" id="adder"
+												style="padding: 6px 10px; float: right;"
+												onclick="addOption3()">Add Option</button>
+										</div>
+										
+										<button type="submit" class="btn btn-primary mt-3">Submit</button>
+									  </form>
+								</div>
+							</div>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item"><h4>Question 1.</h4><p><span>What is your total exprience?</span></p></li>
+							<li class="list-group-item"><h4>Question Type: </h4><p>MCQ</p></li>
+							<li class="list-group-item"><h4 class="d-inline">Option 1: </h4><p class="d-inline ml-2">1 year</p>
+								<select class="custom-select mt-2">
+									<option selected>Select the response question</option>
+									<option value="1">None(move to the end of the video)</option>
+									<option value="2">Question 2</option>
+									<option value="3">Question 3</option>
+									<option value="3">Question 4</option>
+								  </select>
+							  </li>
+							<li class="list-group-item"><h4 class="d-inline">Option 2: </h4><p class="d-inline ml-2">2 years</p>
+								<select class="custom-select mt-2">
+									<option selected>Select the response question</option>
+									<option value="1">None(move to the end of the video)</option>
+									<option value="2">Question 2</option>
+									<option value="3">Question 3</option>
+									<option value="3">Question 4</option>
+							  </select>
+							  </li>
+							<li class="list-group-item"><h4 class="d-inline">Option 3: </h4><p class="d-inline ml-2">3 years</p>
+								<select class="custom-select mt-2">
+									<option selected>Select the response question</option>
+									<option value="1">None(move to the end of the video)</option>
+									<option value="2">Question 2</option>
+									<option value="3">Question 3</option>
+									<option value="3">Question 4</option>
+							  </select>
+							  </li>
+							<li class="list-group-item"><h4 class="d-inline">Option 4: </h4><p class="d-inline ml-2">3+ years</p>
+								<select class="custom-select mt-2">
+									<option selected>Select the response question</option>
+									<option value="1">None(move to the end of the video)</option>
+									<option value="2">Question 2</option>
+									<option value="3">Question 3</option>
+									<option value="3">Question 4</option>
+							  </select>
+							  </li>
+							  <li class="list-group-item">
+								<button type="button" class="btn btn-primary">Save as Draft</button>
+								<button type="button" class="btn btn-primary">Share with Marketing team</button>
+							  </select>
+							</li>
+						</ul>
+					</div>
+				<!--  -->
+				<div class="tab-pane fade row" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<div class="card col-9 mt-0 mb-4 mx-auto">
+
+						<div class="card-body">
+							<h2 class="card-title mb-2">Salary Info</h2>
+						  </div>
+						  <ul class="list-group list-group-flush">
+							  <li class="list-group-item"><h5>Maximum Budget</h5>
+								  <p><%= jobdesc.maxBudget %> </p>
+							  </li>
+							  <li class="list-group-item"><h5>Working days</h5>
+								  <p> <%= jobdesc.workingDays %>  </p>
+							  </li>
+							  <li class="list-group-item"><h5>Minimum Raise</h5>
+								<p> <%= jobdesc.minRaise %>  </p>
+							  <li class="list-group-item"><h5>Maximum Raise</h5>
+								<p> <%= jobdesc.maxRaise %>  </p>
+							</li>
+							  <li class="list-group-item"><h5>Shift Timing</h5>
+								<p> <%= jobdesc.shift %>  </p>
+							</li>
+							<li class="list-group-item"><h5>Shift Allowances</h5>
+								<p> <%= jobdesc.allowance %>  </p>
+							</li>
+						  </ul>
+					</div>
+					
+					<div class="card mb-5" style="width: 70%; margin: 0 auto;" >
+						<div class="row justify-content-center m-5">
+							<h2 class="mb-1">Set Question</h2>
+							<div class="col-10">
+								<form action="/admin/postquestion/<%= jobdesc.id %>" method="POST" >
+									<div class= "form-group" id="topic_type">
+										<label for="question_topic"><h3>Question on:</h3></label>
+										<select class="custom-select mb-3" name="question_topic" id="question_topic" required>
+											<option value="salary" selected>Salary</option>
+											<option value="company">Company</option>
+											<option value="skill">Skills</option>
+										</select>
+									</div>
+									<select class="custom-select mb-3" id="selectType2" name="question_type" required>
+										<option value="" selected>Select the question type</option>
+										<option value="subjective">Subjective</option>
+										<option value="mcq">MCQ</option>
+										<!-- <option value="audio">Subjective Audio</option> -->
+										<option value="end">Ending Question</option>
+									</select>
+									<div class="form-group d-none" id="questionText2">
+										<label for="exampleFormControlTextarea1">Question</label>
+										<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ask your question here" name="question" required></textarea>			
+									</div>
+									<div id="expected2"class="d-none">
+										<label for="expectedAnswer">Expected Answer</label>
+										<textarea class="form-control" id="expectedAnswer" rows="3" placeholder="Expected answer here" name="expectedAnswer"></textarea>
+									</div>
+									<div id="options2" class="d-none">
+									<div id="optionsmcq2">
+										<div class="form-group" id="option2-0">
+											<label for="exampleInputEmail1">Option 1</label>
+											<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your first option" name="option[0]">
+											
+										</div>
+										<div class="form-group" id="option2-1">
+											<label for="exampleInputEmail1">Option 2</label>
+											<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your second option" name="option[1]">
+											
+										</div>
+									</div>
+										<button class="btn btn-outline btn-success" type="button" id="adder"
+                    						style="padding: 6px 10px; float: right;"
+											onclick="addOption2()">Add Option</button>
+									</div>
+									
+									<button type="submit" class="btn btn-primary mt-3">Submit</button>
+								  </form>
+							</div>
+						</div>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item"><h4>Question 1.</h4><p><span>What is your total exprience?</span></p></li>
+						<li class="list-group-item"><h4>Question Type: </h4><p>MCQ</p></li>
+						<li class="list-group-item"><h4 class="d-inline">Option 1: </h4><p class="d-inline ml-2">1 year</p>
+							<select class="custom-select mt-2">
+								<option selected>Select the response question</option>
+								<option value="1">None(move to the end of the video)</option>
+								<option value="2">Question 2</option>
+								<option value="3">Question 3</option>
+								<option value="3">Question 4</option>
+							  </select>
+						  </li>
+						<li class="list-group-item"><h4 class="d-inline">Option 2: </h4><p class="d-inline ml-2">2 years</p>
+							<select class="custom-select mt-2">
+								<option selected>Select the response question</option>
+								<option value="1">None(move to the end of the video)</option>
+								<option value="2">Question 2</option>
+								<option value="3">Question 3</option>
+								<option value="3">Question 4</option>
+						  </select>
+						  </li>
+						<li class="list-group-item"><h4 class="d-inline">Option 3: </h4><p class="d-inline ml-2">3 years</p>
+							<select class="custom-select mt-2">
+								<option selected>Select the response question</option>
+								<option value="1">None(move to the end of the video)</option>
+								<option value="2">Question 2</option>
+								<option value="3">Question 3</option>
+								<option value="3">Question 4</option>
+						  </select>
+						  </li>
+						<li class="list-group-item"><h4 class="d-inline">Option 4: </h4><p class="d-inline ml-2">3+ years</p>
+							<select class="custom-select mt-2">
+								<option selected>Select the response question</option>
+								<option value="1">None(move to the end of the video)</option>
+								<option value="2">Question 2</option>
+								<option value="3">Question 3</option>
+								<option value="3">Question 4</option>
+						  </select>
+						  </li>
+						  <li class="list-group-item">
+							<button type="button" class="btn btn-primary">Save as Draft</button>
+							<button type="button" class="btn btn-primary">Share with Marketing team</button>
+						  </select>
+						</li>
+					</ul>
+				</div>
+				
+			  </div>			  
+            
+            <script src="/main.js"></script>
+			<!-- end pageheader  -->
+
+
+			
+
+				<!-- Top Earning User  -->
+
+				
+				<!-- Top Earning User  -->
+			</div>
+		</div>
+	</div>
+	<%- include('./footer') %>
+	<Script>
+		//////////////////////////////// ADD OPTIONS FOR MCQ SKILL \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+		var count = 2;
+		let box = document.querySelector('#optionsmcq')
+		function addOption(){
+			newbox = document.createElement('div');
+			newbox.innerHTML += `
+			<div class="form-group" id = "option`+count+`">
+				<label for="exampleInputEmail1">Option `+(count+1)+`</label>
+				<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your second option" name="option[`+count+`]">
+				<button
+            	    type="button"
+                	class="btn vtn-outline btn-danger mx-1"
+                	style="width: 10%; padding: 6px 10px;"
+                	onclick="removeOption()">
+                    	Remove
+            	</button>						
+			</div>`
+			box.append(newbox)
+			count += 1
+		}
+		function removeOption(){
+			document.getElementById("option"+(count-1)).remove()
+			
+			count -= 1
+
+		}
+
+		////////////////////////////////// ADD OPTIONS FOR MCQ SALARY \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+		var count2 = 2;
+		let box2 = document.querySelector('#optionsmcq2')
+		function addOption2(){
+			newbox = document.createElement('div');
+			newbox.innerHTML += `
+			<div class="form-group" id = "option2-`+count2+`">
+				<label for="exampleInputEmail1">Option `+(count2+1)+`</label>
+				<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your second option" name="option[`+count2+`]">
+				<button
+            	    type="button"
+                	class="btn vtn-outline btn-danger mx-1"
+                	style="width: 10%; padding: 6px 10px;"
+                	onclick="removeOption2()">
+                    	Remove
+            	</button>						
+			</div>`
+			box2.append(newbox)
+			count2 += 1
+		}
+		function removeOption2(){
+			document.getElementById("option2-"+(count2-1)).remove()
+			
+			count2 -= 1
+
+		}
+		////////////////////////////////// ADD OPTIONS FOR COMPANY \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+		var count3 = 2;
+		let box3 = document.querySelector('#optionsmcq3')
+		function addOption3(){
+			newbox = document.createElement('div');
+			newbox.innerHTML += `
+			<div class="form-group" id = "option3-`+count3+`">
+				<label for="exampleInputEmail1">Option `+(count3+1)+`</label>
+				<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your second option" name="option[`+count3+`]">
+				<button
+            	    type="button"
+                	class="btn vtn-outline btn-danger mx-1"
+                	style="width: 10%; padding: 6px 10px;"
+                	onclick="removeOption2()">
+                    	Remove
+            	</button>						
+			</div>`
+			box3.append(newbox)
+			count3 += 1
+		}
+		function removeOption2(){
+			document.getElementById("option3-"+(count3-1)).remove()
+			
+			count3 -= 1
+
+		}
+		
+		if ($('#c3chart_zoom').length) {
+			var chart = c3.generate({
+				bindto: "#c3chart_zoom",
+				data: {
+					x: 'x',
+					columns: [
+						['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+						['ending', 78, 8, 5, 8, 2, 8, 2, 8, 2, 8, 2, 8, 8],
+						['sample', 30, 200, 100, 400, 150, 250, 150, 200, 170, 240, 350, 150, 100, 400, 150, 250,
+							150, 200, 170, 240, 100, 150, 250, 150, 200, 170, 240, 30, 200, 100, 400, 150, 250,
+							150, 200, 170, 240, 350, 150, 100, 400, 350, 220, 250, 300, 270, 140, 150, 90, 150,
+							50, 120, 70, 40
+						]
+					],
+
+					colors: {
+						sample: '#5969ff',
+						ending: ''
+					}
+				},
+				zoom: {
+					enabled: true
+				},
+				axis: {
+					y: {
+						show: true,
+
+
+					},
+					x: {
+						show: true,
+						type: 'timeseries',
+						tick: {
+							format: '%m-%d'
+						}
+					}
+				}
+
+			});
+		}
+		setTimeout(function () {
+			chart.load({
+				columns: [
+					['data3', 400, 500, 450, 700, 0, 500]
+				]
+			});
+		}, 1000);
+		$
+    </Script>
+    

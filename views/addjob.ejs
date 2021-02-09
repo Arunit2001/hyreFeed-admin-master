@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Hyrefeed</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Uesr</a>
+            <a class="nav-item nav-link" href="#">Jobs</a>
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+        <!-- Content here -->
+        <h3 class="m-4">Add Job</h3>
+        <form class="mb-4">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Company name</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Company name">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Company description</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Job title</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Job title">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Number of positions</label>
+                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Number of positions">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Education needed</label>
+                <select class="custom-select">
+                    <option selected>Open this select menu</option>
+                    <option value="1">BE</option>
+                    <option value="2">MSc</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Experience needed</label>
+                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Experience">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Salary</label>
+                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Experience">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Company Address</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Job description</label>
+                <textarea name="editor3"></textarea>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose video file</label>
+            </div>
+           
+            
+          </form>
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Add a question
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h4 class="mt-4 mb-3">Add Questions</h4>
+           <div class="form-group">
+            <label for="exampleFormControlInput1">Question type</label>
+                <select class="custom-select">
+                    <option selected>Open this select menu</option>
+                    <option value="1">Objective</option>
+                    <option value="2">Subjective</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Question</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Question">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">option 1</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="option 1">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">option 2</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="option 2">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">option 3</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="option 3">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">option 4</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="option 4">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Select answer</label>
+                    <select class="custom-select">
+                        <option selected>Select answer</option>
+                        <option value="1">option 1</option>
+                        <option value="2">option 2</option>
+                        <option value="2">option 3</option>
+                        <option value="2">option 4</option>
+                    </select>
+            </div>
+            
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save Question</button>
+    </div>
+    </div>
+</div>
+</div>
+    <button type="button" class="btn btn-primary">Add Job</button>
+    </div>
+</body>
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+	<script>
+		CKEDITOR.replace('editor1');
+		CKEDITOR.replace('editor2');
+		CKEDITOR.replace('editor3');
+		CKEDITOR.replace('editor4');
+        CKEDITOR.replace('editor5');
+        $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+        })
+    </script>
+
+</html>

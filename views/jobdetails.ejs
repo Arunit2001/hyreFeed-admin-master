@@ -1,0 +1,211 @@
+<%- include('./header') %>
+
+<!-- wrapper  -->
+
+<div class="dashboard-wrapper">
+	<div class="dashboard-ecommerce">
+		<div class="container-fluid dashboard-content ">
+
+			<!-- pageheader  -->
+
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="page-header">
+						<h2 class="pageheader-title">Jobs</h2>
+
+						<div class="page-breadcrumb">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Admin</a>
+									</li>
+									<li class="breadcrumb-item active" aria-current="page">Job details</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+            </div>
+            <div class="card-body p-0">
+                <div class="card">
+                    <div class="card-header">
+                      <h2 class="m-0">
+                        Job Details
+                      </h2>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="d-inline card-title">Job Title: </h5>
+                      <p class="d-inline card-text ml-2"><%= job.title %></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Job type: </h5><%= job.jobType %></li>
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Location: </h5><%= job.location %></li>
+                    </ul>
+                    <h5 class="ml-3 mb-2">Day to day responsibilities</h5>
+                    <!-- <ol class="">
+                        <li>Researching, designing, implementing and managing software programs</li>
+                        <li>esting and evaluating new programs</li>
+                        <li>Identifying areas for modification in existing programs and subsequently developing these modifications</li>
+                        <li>Writing and implementing efficient code</li>
+                        <li>Determining operational practicality</li>
+                        <li>Developing quality assurance procedures</li>
+                        <li>Deploying software tools, processes and metrics</li>
+                        <li>Maintaining and upgrading existing systems</li>
+                    </ol> -->
+                    <p class = "responsibility" style="text-align: left;">
+                      <%= job.responsibility %>
+                    </p>
+                  </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="card">
+                    <div class="card-header">
+                      <h2 class="m-0">
+                        Education details
+                      </h2>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="d-inline card-title">Education: </h5>
+                      <p class="d-inline card-text ml-2"><%= job.education %></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Any preferred stream: </h5><%= job.stream %></li>
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Tier 1 college: </h5><%= job.tier1 %></li>
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Education criteria: </h5><%= job.educationCriteria %></li>
+                    </ul>
+                  </div>
+            </div>
+           
+            <div class="card-body p-0">
+                <div class="card">
+                    <div class="card-header">
+                      <h2 class="m-0">
+                        Experience required
+                      </h2>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Years of experience: </h5><%= job.experience %></li>
+                        
+                        <li class="list-group-item"><h3>Experience required in Any specific skills set </h3>
+                          <% if (job.skill) { %>
+                          <% for(let i = 0; i < job.skill.length; i++) { %>
+                            <% if (job.skill[i]) { %>
+                            <h5 class="card-title m-0"><%= job.skill[i] %> : </h5><p><%= job.skillExperience[i] %></p>
+                            <% } else { %>
+                              <h5 class="card-title m-0">nothing</h5><p> nothing</p>
+                            <% } %>
+
+                          <% } %>
+                          <% } %>
+                        </li>
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h3>Experience required in Any specific industry</h3>
+                          <% if (job.industry) { %>
+                          <% for(let i = 0; i<job.industry.length; i++) { %>
+                            <h5 class="card-title m-0"> <%= job.industry[i] %>: </h5><p><% job.industryExperience[i] %></p>
+                          <% } %>  
+                          <% } %>  
+                        </li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="card">
+                    <div class="card-header">
+                      <h2 class="m-0">
+                        Perks & allowances
+                      </h2>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Maximum Budget: </h5><%= job.maxBudget %></li>
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Working days: </h5><%= job.workingDays %></li>
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Shift Timing: </h5><%= job.shift %></li>
+                        <li class="list-group-item"><h5 class="d-inline card-title m-0">Shift Allowances: </h5><%= job.allowance %></li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="card">
+                    <div class="card-header">
+                      <h2 class="m-0">
+                        Interview details section
+                      </h2>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><h3>Interview process</h3>
+                        <% if (job.interview) { %> 
+                        <% for(let i = 0; i < job.interview.length; i++) { %>
+                        <h5 class=" card-title m-0"><%= job.interview[i].round %>: </h5><%= job.interview[i].interview_type %>
+                        <button type="button" class="btn btn-link" href="<%= job.interview[i].test_link %>" >Test Link</button>
+                        <% } %>
+                        <% } %> 
+                      </li>
+                  </ul>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><h3>Any specific interview questions</h3>
+                        <% let count = 1 %>
+                        <% if (job.questions) { %> 
+                        <% for(let i = 0; i < job.questions; i++) { %>
+                        <h5 class=" card-title m-0">Question <%= count %>: </h5><%= job.questions[i] %>
+                        <% } %>
+                        <% } %> 
+                      </li>
+                  </ul>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+	<%- include('./footer') %>
+	<Script>
+		if ($('#c3chart_zoom').length) {
+			var chart = c3.generate({
+				bindto: "#c3chart_zoom",
+				data: {
+					x: 'x',
+					columns: [
+						['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+						['ending', 78, 8, 5, 8, 2, 8, 2, 8, 2, 8, 2, 8, 8],
+						['sample', 30, 200, 100, 400, 150, 250, 150, 200, 170, 240, 350, 150, 100, 400, 150, 250,
+							150, 200, 170, 240, 100, 150, 250, 150, 200, 170, 240, 30, 200, 100, 400, 150, 250,
+							150, 200, 170, 240, 350, 150, 100, 400, 350, 220, 250, 300, 270, 140, 150, 90, 150,
+							50, 120, 70, 40
+						]
+					],
+
+					colors: {
+						sample: '#5969ff',
+						ending: ''
+					}
+				},
+				zoom: {
+					enabled: true
+				},
+				axis: {
+					y: {
+						show: true,
+
+
+					},
+					x: {
+						show: true,
+						type: 'timeseries',
+						tick: {
+							format: '%m-%d'
+						}
+					}
+				}
+
+			});
+		}
+		setTimeout(function () {
+			chart.load({
+				columns: [
+					['data3', 400, 500, 450, 700, 0, 500]
+				]
+			});
+		}, 1000);
+
+	</Script>

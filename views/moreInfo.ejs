@@ -1,0 +1,159 @@
+<%- include('./header') %>
+
+<!-- wrapper  -->
+
+<div class="dashboard-wrapper">
+	<div class="dashboard-ecommerce">
+		<div class="container-fluid dashboard-content ">
+
+			<!-- pageheader  -->
+
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="page-header">
+						<h2 class="pageheader-title">User Info</h2>
+
+						<div class="page-breadcrumb">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Admin</a>
+									</li>
+                                    <li class="breadcrumb-item active" aria-current="page">User</li>
+                                    <li class="breadcrumb-item active" aria-current="page">User Info</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center mb-3">
+                    <img class="" style="width: 18rem;" class="card-img-top" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
+                </div>
+                <div class="card col-6 mb-0">
+                    
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><h4 class="mb-1">Name: </h4>Rudresh HM</li>
+                      <li class="list-group-item"><h4 class="mb-1">Mobile number: </h4>8669645124</li>
+                      <li class="list-group-item"><h4 class="mb-1">Email: </h4>aabcdefgh@gmail.com</li>
+                      <li class="list-group-item"><h4 class="mb-1">Gender: </h4>Male</li>
+                      <li class="list-group-item"><h4 class="mb-1">Date of Birth: </h4>24/08/2000</li>
+                    </ul>
+                </div>
+                <div class="card col-6 mb-0">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><h4 class="mb-1">Industry: </h4>Computer science</li>
+                      <li class="list-group-item"><h4 class="mb-1">Functional area: </h4>Computer science</li>
+                      <li class="list-group-item"><h4 class="mb-1">Notice period: </h4>3 months</li>
+                      <li class="list-group-item"><h4 class="mb-1">Experience: </h4>2 years</li>
+                      <li class="list-group-item"><h4 class="mb-1">Expected Salary (INR): </h4>2000000</li>
+                    </ul>
+                </div>
+                <div class="card-body col-12 mb-3">
+                    <button type="button" class="btn btn-primary">View Resume</button>
+                    <button type="button" class="btn btn-secondary">Download Resume</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card col-12">
+                    <div class="card-body">
+                        <h2 class="card-title m-0">Education</h2>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><h4 class="mb-1">Institute: </h4>Computer science</li>
+                      <li class="list-group-item"><h4 class="mb-1">Batch: </h4>Computer science</li>
+                      <li class="list-group-item"><h4 class="mb-1">Course Type: </h4>3 months</li>
+                      <li class="list-group-item"><h4 class="mb-1">Degree: </h4>2 years</li>
+                    </ul>
+                </div>
+                <div class="card col-12">
+                    <div class="card-body">
+                        <h2 class="card-title m-0">Certification</h2>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><h4 class="mb-1">Certification: </h4>Computer science</li>
+                      <li class="list-group-item"><h4 class="mb-1">Institute: </h4>Computer science</li>
+                      <li class="list-group-item"><h4 class="mb-1">Batch: </h4>3 months</li>
+                      <li class="list-group-item"><h4 class="mb-1">Type: </h4>2 years</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Pro details -->
+			<div class="row">
+                <div class="card col-12">
+                    <div class="card-body">
+                        <h2 class="card-title m-0">Professional Details</h2>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><h4 class="mb-1">Designation: </h4>Computer science</li>
+                      <li class="list-group-item"><h4 class="mb-1">Organization: </h4>Computer science</li>
+                      <li class="list-group-item"><h4 class="mb-1">Time Period: </h4>2 years</li>
+                    </ul>
+                </div>
+                <div class="card col-12">
+                    <div class="card-body">
+                        <h2 class="card-title m-0">Skills</h2>
+                    </div>
+                    <div class="pb-2">
+                        <button type="button" class="btn btn-light ml-1">React</button>
+                        <button type="button" class="btn btn-light ml-1">Node js</button>
+                        <button type="button" class="btn btn-light ml-1">MongoDB</button>
+                        <button type="button" class="btn btn-light ml-1">Angular</button>
+                        <button type="button" class="btn btn-light ml-1">Git</button>
+                        <button type="button" class="btn btn-light ml-1">Adobe XD</button>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+	<%- include('./footer') %>
+	<Script>
+		if ($('#c3chart_zoom').length) {
+			var chart = c3.generate({
+				bindto: "#c3chart_zoom",
+				data: {
+					x: 'x',
+					columns: [
+						['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+						['ending', 78, 8, 5, 8, 2, 8, 2, 8, 2, 8, 2, 8, 8],
+						['sample', 30, 200, 100, 400, 150, 250, 150, 200, 170, 240, 350, 150, 100, 400, 150, 250,
+							150, 200, 170, 240, 100, 150, 250, 150, 200, 170, 240, 30, 200, 100, 400, 150, 250,
+							150, 200, 170, 240, 350, 150, 100, 400, 350, 220, 250, 300, 270, 140, 150, 90, 150,
+							50, 120, 70, 40
+						]
+					],
+
+					colors: {
+						sample: '#5969ff',
+						ending: ''
+					}
+				},
+				zoom: {
+					enabled: true
+				},
+				axis: {
+					y: {
+						show: true,
+
+
+					},
+					x: {
+						show: true,
+						type: 'timeseries',
+						tick: {
+							format: '%m-%d'
+						}
+					}
+				}
+
+			});
+		}
+		setTimeout(function () {
+			chart.load({
+				columns: [
+					['data3', 400, 500, 450, 700, 0, 500]
+				]
+			});
+		}, 1000);
+
+	</Script>
